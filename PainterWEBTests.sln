@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainterWEBTests", "PainterWEBTests\PainterWEBTests.csproj", "{E70A3288-D5BE-49C0-8800-2A90F7ADA11D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E70A3288-D5BE-49C0-8800-2A90F7ADA11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70A3288-D5BE-49C0-8800-2A90F7ADA11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70A3288-D5BE-49C0-8800-2A90F7ADA11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70A3288-D5BE-49C0-8800-2A90F7ADA11D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6642E6C-EF91-4C9E-949F-D68D5409453A}
+	EndGlobalSection
+EndGlobal
