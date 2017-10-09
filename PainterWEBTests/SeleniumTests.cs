@@ -75,7 +75,7 @@ namespace PainterWEBTests
             {
                 driver = MakeDriver();
                 obj = new POM(driver);
-                driver.Navigate().GoToUrl(@"F:\CSharpDev\2017.10.09\Painter WEB\index.html");
+                driver.Navigate().GoToUrl(@"E:\CSharpDev\2017.10.09\Painter WEB\index.html");
 
             }
 
@@ -111,10 +111,10 @@ namespace PainterWEBTests
                 //driver = new SafariDriver();
 
 
-                //driver.Navigate().GoToUrl("file:///E:/CSharpDev/Projects/Calculator/CalculatorJS/CalcJSBtns.html");
+                //driver.Navigate().GoToUrl("");
             }
 
-            [TearDown]
+            [OneTimeTearDown]
             public void ClassTearDown()
             {
                 driver.Quit();
@@ -125,23 +125,16 @@ namespace PainterWEBTests
             {
                 driver.Navigate().Refresh();
             }
-            
 
-            //[TestCase(obj.newTabMenuItem, "0")]
-            [TestCase("btn1", "1")]
-            [TestCase("btn2", "2")]
-            [TestCase("btn3", "3")]
-            [TestCase("btn4", "4")]
-            [TestCase("btn5", "5")]
-            [TestCase("btn6", "6")]
-            [TestCase("btn7", "7")]
-            [TestCase("btn8", "8")]
-            [TestCase("btn9", "9")]
-            [TestCase("btnPlus", "+")]
-            [TestCase("btnMinus", "-")]
-            [TestCase("btnDiv", "/")]
-            [TestCase("btnMult", "*")]
-            [TestCase("btnRes", "=")]
+            [TestCase("newTabToolbarItem", "New")]
+            [TestCase("openNewTabToolbarItem", "Open")]
+            [TestCase("saveToolbarItem", "Save")]
+            [TestCase("openCloudToolbarItem", "Load from cloud")]
+            [TestCase("saveCloudToolbarItem", "Save in cloud")]
+            [TestCase("paintTypeToolbarItem", "Paint Type")]
+            [TestCase("lineWidthToolbarItem", "Line width")]
+            [TestCase("colorToolbarItem", "Paint color")]
+            [TestCase("colorToolboxItem", "Color")]
             public void TestGetAllElem(string id, string exp)
             {
                 string res = driver.FindElement(By.Id(id)).GetAttribute("value");
@@ -149,107 +142,20 @@ namespace PainterWEBTests
             }
 
 
-            //[TestCase("btn0", "0")]
-            //[TestCase("btn1", "1")]
-            //[TestCase("btn2", "2")]
-            //[TestCase("btn3", "3")]
-            //[TestCase("btn4", "4")]
-            //[TestCase("btn5", "5")]
-            //[TestCase("btn6", "6")]
-            //[TestCase("btn7", "7")]
-            //[TestCase("btn8", "8")]
-            //[TestCase("btn9", "9")]
-            //[TestCase("btnPlus", "")]
-            //[TestCase("btnMinus", "")]
-            //[TestCase("btnDiv", "")]
-            //[TestCase("btnMult", "")]
-            //[TestCase("btnRes", "0")]
-            //public void TestUseAllElem(string id, string exp)
-            //{
-            //    obj.GetButton(id).Click();
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
+            [TestCase("fileMenuItem", "File")]
+            [TestCase("viewMenuItem", "View")]
+            [TestCase("pluginsMenuItem", "Plugins")]
+            [TestCase("tabsMenuItem", "Tabs")]
+            [TestCase("propertiesMenuItem", "Properties")]
+            [TestCase("preferencesMenuItem", "Preferences")]
+            [TestCase("helpMenuItem", "Help")]
+            public void TestGetMenuElem(string id, string exp)
+            {
+                string res = driver.FindElement(By.Id(id)).GetAttribute("name");
+                Assert.AreEqual(exp, res);
+            }
 
 
-
-            //[TestCase(new string[] { "btn1", "btn2", "btn3" }, "123")]
-            //[TestCase(new string[] { "btn4", "btn5", "btn6" }, "456")]
-            //[TestCase(new string[] { "btn7", "btn8" }, "78")]
-            //[TestCase(new string[] { "btn9", "btn0" }, "90")]
-            //public void TestComplexUseElem(string[] id, string exp)
-            //{
-            //    foreach (string str in id)
-            //    {
-            //        obj.GetButton(str).Click();
-            //    }
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
-
-
-            //[TestCase(new string[] { "btn1", "btnPlus", "btn3" }, "4")]
-            //[TestCase(new string[] { "btn4", "btnPlus", "btn6" }, "10")]
-            //[TestCase(new string[] { "btn7", "btn8", "btnPlus", "btn2" }, "80")]
-            //[TestCase(new string[] { "btn9", "btn0", "btnPlus", "btn3" }, "93")]
-            //public void TestRealJobPlus(string[] id, string exp)
-            //{
-            //    foreach (string str in id)
-            //    {
-            //        obj.GetButton(str).Click();
-            //    }
-            //    obj.GetButton("btnRes").Click();
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
-
-
-            //[TestCase(new string[] { "btn1", "btnMinus", "btn3" }, "-2")]
-            //[TestCase(new string[] { "btn4", "btnMinus", "btn6" }, "-2")]
-            //[TestCase(new string[] { "btn7", "btn8", "btnMinus", "btn2" }, "76")]
-            //[TestCase(new string[] { "btn9", "btn0", "btnMinus", "btn3" }, "87")]
-            //public void TestRealJobMinus(string[] id, string exp)
-            //{
-            //    foreach (string str in id)
-            //    {
-            //        obj.GetButton(str).Click();
-            //    }
-            //    obj.GetButton("btnRes").Click();
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
-
-
-            //[TestCase(new string[] { "btn1", "btnMult", "btn3" }, "3")]
-            //[TestCase(new string[] { "btn4", "btnMult", "btn6" }, "24")]
-            //[TestCase(new string[] { "btn7", "btn8", "btnMult", "btn2" }, "156")]
-            //[TestCase(new string[] { "btn9", "btn0", "btnMult", "btn3" }, "270")]
-            //public void TestRealJobMult(string[] id, string exp)
-            //{
-            //    foreach (string str in id)
-            //    {
-            //        obj.GetButton(str).Click();
-            //    }
-            //    obj.GetButton("btnRes").Click();
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
-
-
-            //[TestCase(new string[] { "btn3", "btnDiv", "btn1" }, "3")]
-            //[TestCase(new string[] { "btn6", "btnDiv", "btn6" }, "1")]
-            //[TestCase(new string[] { "btn7", "btn8", "btnDiv", "btn2" }, "39")]
-            //[TestCase(new string[] { "btn9", "btn0", "btnDiv", "btn3" }, "30")]
-            //public void TestRealJobDiv(string[] id, string exp)
-            //{
-            //    foreach (string str in id)
-            //    {
-            //        obj.GetButton(str).Click();
-            //    }
-            //    obj.GetButton("btnRes").Click();
-            //    string res = obj.GetTextBox("tbCalc").GetAttribute("value");
-            //    Assert.AreEqual(exp, res);
-            //}
         }
     }
 }
