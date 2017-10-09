@@ -78,7 +78,7 @@ namespace PainterWEBTests
             {
                 driver = MakeDriver();
                 obj = new POM(driver);
-                driver.Navigate().GoToUrl(@"E:\CSharpDev\2017.10.09\Painter WEB\index.html");
+                driver.Navigate().GoToUrl(@"E:\CSharpDev\2017.10.09\PainterWEB\index.html");
 
             }
 
@@ -167,25 +167,25 @@ namespace PainterWEBTests
             [TestCase("openCloudMenuItem", "Open from cloud")]
             public void TestGetMenuFileElem(string id, string exp)
             {
-                driver.FindElement(By.Id(id)).Click();
+                driver.FindElement(By.Id("fileMenuItem")).Click();
                 string res = driver.FindElement(By.Id(id)).GetAttribute("name");
                 Assert.AreEqual(exp, res);
             }
 
-            //[TestCase("newTabMenuItem", "New tab")]
-            //[TestCase("openNewTabMenuItem", "Open")]
-            //[TestCase("saveMenuItem", "Save")]
-            //[TestCase("saveAsMenuItem", "Save as...")]
-            //[TestCase("closeTabMenuItem", "Close tab")]
-            //[TestCase("renameTabMenuItem", "Rename tab")]
-            //[TestCase("openCloudMenuItem", "Open from cloud")]
-            //public void TestGetMenuFileClick(string id, string exp)
-            //{
-            //    driver.FindElement(By.Id("File")).Click();
-            //    driver.FindElement(By.Id(id)).Click();
-            //    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
-            //    IWebElement myDynamicElement = wait.Until(ExpectedConditions.AlertIsPresent());
-            //}
+            [TestCase("newTabMenuItem", "New tab")]
+            [TestCase("openNewTabMenuItem", "Open")]
+            [TestCase("saveMenuItem", "Save")]
+            [TestCase("saveAsMenuItem", "Save as...")]
+            [TestCase("closeTabMenuItem", "Close tab")]
+            [TestCase("renameTabMenuItem", "Rename tab")]
+            [TestCase("openCloudMenuItem", "Open from cloud")]
+            public void TestGetMenuFileClick(string id, string exp)
+            {
+                driver.FindElement(By.Id("fileMenuItem")).Click();
+                driver.FindElement(By.Id(id)).Click();
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                IAlert myDynamicElement = wait.Until(ExpectedConditions.AlertIsPresent());
+            }
 
         }
     }
