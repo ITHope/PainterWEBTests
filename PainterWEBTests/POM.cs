@@ -12,6 +12,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.Safari;
+using OpenQA.Selenium.Support.UI;
 
 namespace PainterWEBTests
 {
@@ -63,6 +64,8 @@ namespace PainterWEBTests
         {
 
         }
+
+        
 
 
         public IWebElement GetElementById(string id)

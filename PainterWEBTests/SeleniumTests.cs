@@ -8,9 +8,11 @@ using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.Safari;
 using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
 
 namespace PainterWEBTests
 {
+
     [TestFixture]
     public class SeleniumTests
     {
@@ -62,6 +64,7 @@ namespace PainterWEBTests
         //        return new PhantomJSDriver();
         //    }
         //}
+
 
 
         [TestFixture]
@@ -155,6 +158,34 @@ namespace PainterWEBTests
                 Assert.AreEqual(exp, res);
             }
 
+            [TestCase("newTabMenuItem", "New tab")]
+            [TestCase("openNewTabMenuItem", "Open")]
+            [TestCase("saveMenuItem", "Save")]
+            [TestCase("saveAsMenuItem", "Save as...")]
+            [TestCase("closeTabMenuItem", "Close tab")]
+            [TestCase("renameTabMenuItem", "Rename tab")]
+            [TestCase("openCloudMenuItem", "Open from cloud")]
+            public void TestGetMenuFileElem(string id, string exp)
+            {
+                driver.FindElement(By.Id(id)).Click();
+                string res = driver.FindElement(By.Id(id)).GetAttribute("name");
+                Assert.AreEqual(exp, res);
+            }
+
+            //[TestCase("newTabMenuItem", "New tab")]
+            //[TestCase("openNewTabMenuItem", "Open")]
+            //[TestCase("saveMenuItem", "Save")]
+            //[TestCase("saveAsMenuItem", "Save as...")]
+            //[TestCase("closeTabMenuItem", "Close tab")]
+            //[TestCase("renameTabMenuItem", "Rename tab")]
+            //[TestCase("openCloudMenuItem", "Open from cloud")]
+            //public void TestGetMenuFileClick(string id, string exp)
+            //{
+            //    driver.FindElement(By.Id("File")).Click();
+            //    driver.FindElement(By.Id(id)).Click();
+            //    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
+            //    IWebElement myDynamicElement = wait.Until(ExpectedConditions.AlertIsPresent());
+            //}
 
         }
     }
