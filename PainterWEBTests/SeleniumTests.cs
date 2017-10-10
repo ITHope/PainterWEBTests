@@ -78,7 +78,7 @@ namespace PainterWEBTests
             {
                 driver = MakeDriver();
                 obj = new POM(driver);
-                driver.Navigate().GoToUrl(@"E:\CSharpDev\2017.10.09\PainterWEB\index.html");
+                driver.Navigate().GoToUrl(@"E:/projects/c%23/PainterWEB/index.html");
 
             }
 
@@ -175,18 +175,19 @@ namespace PainterWEBTests
             [TestCase("newTabMenuItem", "New tab")]
             [TestCase("openNewTabMenuItem", "Open")]
             [TestCase("saveMenuItem", "Save")]
-            [TestCase("saveAsMenuItem", "Save as...")]
+            [TestCase("saveAsMenuItem", "Save As...")]
             [TestCase("closeTabMenuItem", "Close tab")]
             [TestCase("renameTabMenuItem", "Rename tab")]
-            [TestCase("openCloudMenuItem", "Open from cloud")]
+            [TestCase("openCloudMenuItem", "Open from Cloud")]
             public void TestGetMenuFileClick(string id, string exp)
             {
                 driver.FindElement(By.Id("fileMenuItem")).Click();
                 driver.FindElement(By.Id(id)).Click();
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                IAlert myDynamicElement = wait.Until(ExpectedConditions.AlertIsPresent());
-            }
 
+				string text = driver.SwitchTo().Alert().Text;
+				driver.SwitchTo().Alert().Accept();
+				Assert.AreEqual(text, exp);
+			}
         }
     }
 }
